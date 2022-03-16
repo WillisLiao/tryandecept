@@ -57,7 +57,7 @@ while True:
                     elif len(account)<8:
                         raise AccountTooSmallError
                     else:
-                        file.write(f"account: {account}\n")
+                        file.write(f"\naccount: {account}\n")
                         
                         break
                         
@@ -85,7 +85,7 @@ while True:
                             hash_obj = hashlib.sha256(pw.encode())
                             outFile_obj.write(hash_obj.hexdigest())
                             
-                            file.write(f'"password: {pw}" after hash is "{hash_obj.hexdigest()}"')
+                            file.write(f'"\npassword: {pw}" after hash is "{hash_obj.hexdigest()}\n"')
                             outFile_obj.close()
                             file.close()
                         break
