@@ -1,8 +1,6 @@
 import os.path
 import hashlib
 
-
-
 class Error(Exception):
     pass
 
@@ -21,21 +19,15 @@ class AccountTooLargeError(Error):
 class FileAlreadyExists(Error):
     pass
 
-#remember to close file
-
 address = os.getcwd()
 count=0
 
 while True:
-
-    while True:
-        
+    while True:       
         try:
-            name = input("filename: ")
-                
+            name = input("filename: ")               
             if  os.path.isfile(f"{name}.txt"):
-                raise FileAlreadyExists
-                
+                raise FileAlreadyExists             
             elif name=='stop':
                 break    
             else:
@@ -83,9 +75,9 @@ while True:
                         outFileName = f'{name}.txt'
                         with open(outFileName, mode='a+') as outFile_obj:
                             hash_obj = hashlib.sha256(pw.encode())
-                            outFile_obj.write(hash_obj.hexdigest())
+                            #outFile_obj.write(hash_obj.hexdigest())
                             
-                            file.write(f'"\npassword: {pw}" after hash is "{hash_obj.hexdigest()}\n"')
+                            file.write(f'\npassword:"{pw}" after hash is "{hash_obj.hexdigest()}"\n')
                             outFile_obj.close()
                             file.close()
                         break
